@@ -12,9 +12,7 @@
     />
   </head>
   <body>
-    <div class="announcement-banner">
-  📢 Activity registration is open until the end of the month. Don't lose your spot!
-</div>
+    <div class="announcement-banner hidden" id="announcement-banner"></div>
     <header>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
@@ -29,6 +27,9 @@
             <button id="logout-button">Logout</button>
           </div>
         </div>
+        <button id="manage-announcements-button" class="manage-announcements-button hidden">
+          ⚙️ Manage Announcements
+        </button>
       </div>
     </header>
 
@@ -134,6 +135,37 @@
           <button type="submit">Login</button>
         </form>
         <div id="login-message" class="hidden message"></div>
+      </div>
+    </div>
+
+    <!-- Announcement Manager Modal -->
+    <div id="announcement-manager-modal" class="modal hidden">
+      <div class="modal-content announcement-manager-content">
+        <span class="close-announcement-manager-modal">&times;</span>
+        <h3>Manage Announcements</h3>
+        <div id="announcement-message" class="hidden message"></div>
+
+        <div class="announcement-form-group">
+          <label for="announcement-message-input">Message <span class="required">*</span></label>
+          <textarea id="announcement-message-input" rows="3" placeholder="Announcement text"></textarea>
+        </div>
+
+        <div class="announcement-form-row">
+          <div class="announcement-form-group">
+            <label for="announcement-start-input">Start Date</label>
+            <input type="date" id="announcement-start-input" />
+          </div>
+          <div class="announcement-form-group">
+            <label for="announcement-expiry-input">Expiration Date <span class="required">*</span></label>
+            <input type="date" id="announcement-expiry-input" />
+          </div>
+        </div>
+
+        <button id="announcement-save-button" class="primary-btn">Save Announcement</button>
+
+        <hr />
+
+        <div id="announcement-list" class="announcement-list"></div>
       </div>
     </div>
 
